@@ -1,0 +1,1476 @@
+{
+  "Application": {
+    "Screens": [
+      {
+        "Name": "Screen1",
+        "Components": [
+          {
+            "Type": "FlexButton",
+            "Name": "whiteKey_C4",
+            "Y": 180,
+            "Width": 50,
+            "Height": 300,
+            "ButtonTrigger": {
+              "Type": "TouchButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "Width": 50,
+                "Height": 300,
+                "LockToFlexButtonSize": true,
+                "BorderSize": 5,
+                "ColorReleased": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "ColorPressed": {
+                  "Red": 170,
+                  "Green": 221,
+                  "Blue": 255
+                },
+                "ColorBorderReleased": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "ColorBorderPressed": {
+                  "Red": 170,
+                  "Green": 221,
+                  "Blue": 255
+                }
+              }
+            ]
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "whiteKey_D4",
+            "X": 57,
+            "Y": 180,
+            "Width": 50,
+            "Height": 300,
+            "ButtonTrigger": {
+              "Type": "TouchButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "Width": 50,
+                "Height": 300,
+                "LockToFlexButtonSize": true,
+                "BorderSize": 5,
+                "ColorReleased": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "ColorPressed": {
+                  "Red": 170,
+                  "Green": 221,
+                  "Blue": 255
+                },
+                "ColorBorderReleased": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "ColorBorderPressed": {
+                  "Red": 170,
+                  "Green": 221,
+                  "Blue": 255
+                }
+              }
+            ]
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "whiteKey_E4",
+            "X": 114,
+            "Y": 180,
+            "Width": 50,
+            "Height": 300,
+            "ButtonTrigger": {
+              "Type": "TouchButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "Width": 50,
+                "Height": 300,
+                "LockToFlexButtonSize": true,
+                "BorderSize": 5,
+                "ColorReleased": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "ColorPressed": {
+                  "Red": 170,
+                  "Green": 221,
+                  "Blue": 255
+                },
+                "ColorBorderReleased": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "ColorBorderPressed": {
+                  "Red": 170,
+                  "Green": 221,
+                  "Blue": 255
+                }
+              }
+            ]
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "whiteKey_F4",
+            "X": 171,
+            "Y": 180,
+            "Width": 50,
+            "Height": 300,
+            "ButtonTrigger": {
+              "Type": "TouchButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "Width": 50,
+                "Height": 300,
+                "LockToFlexButtonSize": true,
+                "BorderSize": 5,
+                "ColorReleased": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "ColorPressed": {
+                  "Red": 170,
+                  "Green": 221,
+                  "Blue": 255
+                },
+                "ColorBorderReleased": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "ColorBorderPressed": {
+                  "Red": 170,
+                  "Green": 221,
+                  "Blue": 255
+                }
+              }
+            ]
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "whiteKey_G4",
+            "X": 228,
+            "Y": 180,
+            "Width": 50,
+            "Height": 300,
+            "ButtonTrigger": {
+              "Type": "TouchButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "Width": 50,
+                "Height": 300,
+                "LockToFlexButtonSize": true,
+                "BorderSize": 5,
+                "ColorReleased": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "ColorPressed": {
+                  "Red": 170,
+                  "Green": 221,
+                  "Blue": 255
+                },
+                "ColorBorderReleased": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "ColorBorderPressed": {
+                  "Red": 170,
+                  "Green": 221,
+                  "Blue": 255
+                }
+              }
+            ]
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "whiteKey_A4",
+            "X": 285,
+            "Y": 180,
+            "Width": 50,
+            "Height": 300,
+            "ButtonTrigger": {
+              "Type": "TouchButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "Width": 50,
+                "Height": 300,
+                "LockToFlexButtonSize": true,
+                "BorderSize": 5,
+                "ColorReleased": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "ColorPressed": {
+                  "Red": 170,
+                  "Green": 221,
+                  "Blue": 255
+                },
+                "ColorBorderReleased": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "ColorBorderPressed": {
+                  "Red": 170,
+                  "Green": 221,
+                  "Blue": 255
+                }
+              }
+            ]
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "whiteKey_B4",
+            "X": 342,
+            "Y": 180,
+            "Width": 50,
+            "Height": 300,
+            "ButtonTrigger": {
+              "Type": "TouchButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "Width": 50,
+                "Height": 300,
+                "LockToFlexButtonSize": true,
+                "BorderSize": 5,
+                "ColorReleased": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "ColorPressed": {
+                  "Red": 170,
+                  "Green": 221,
+                  "Blue": 255
+                },
+                "ColorBorderReleased": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "ColorBorderPressed": {
+                  "Red": 170,
+                  "Green": 221,
+                  "Blue": 255
+                }
+              }
+            ]
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "whiteKey_C5",
+            "X": 399,
+            "Y": 180,
+            "Width": 50,
+            "Height": 300,
+            "ButtonTrigger": {
+              "Type": "TouchButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "Width": 50,
+                "Height": 300,
+                "LockToFlexButtonSize": true,
+                "BorderSize": 5,
+                "ColorReleased": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "ColorPressed": {
+                  "Red": 170,
+                  "Green": 221,
+                  "Blue": 255
+                },
+                "ColorBorderReleased": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "ColorBorderPressed": {
+                  "Red": 170,
+                  "Green": 221,
+                  "Blue": 255
+                }
+              }
+            ]
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "whiteKey_D5",
+            "X": 456,
+            "Y": 180,
+            "Width": 50,
+            "Height": 300,
+            "ButtonTrigger": {
+              "Type": "TouchButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "Width": 50,
+                "Height": 300,
+                "LockToFlexButtonSize": true,
+                "BorderSize": 5,
+                "ColorReleased": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "ColorPressed": {
+                  "Red": 170,
+                  "Green": 221,
+                  "Blue": 255
+                },
+                "ColorBorderReleased": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "ColorBorderPressed": {
+                  "Red": 170,
+                  "Green": 221,
+                  "Blue": 255
+                }
+              }
+            ]
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "whiteKey_E5",
+            "X": 513,
+            "Y": 180,
+            "Width": 50,
+            "Height": 300,
+            "ButtonTrigger": {
+              "Type": "TouchButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "Width": 50,
+                "Height": 300,
+                "LockToFlexButtonSize": true,
+                "BorderSize": 5,
+                "ColorReleased": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "ColorPressed": {
+                  "Red": 170,
+                  "Green": 221,
+                  "Blue": 255
+                },
+                "ColorBorderReleased": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "ColorBorderPressed": {
+                  "Red": 170,
+                  "Green": 221,
+                  "Blue": 255
+                }
+              }
+            ]
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "whiteKey_F5",
+            "X": 570,
+            "Y": 180,
+            "Width": 50,
+            "Height": 300,
+            "ButtonTrigger": {
+              "Type": "TouchButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "Width": 50,
+                "Height": 300,
+                "LockToFlexButtonSize": true,
+                "BorderSize": 5,
+                "ColorReleased": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "ColorPressed": {
+                  "Red": 170,
+                  "Green": 221,
+                  "Blue": 255
+                },
+                "ColorBorderReleased": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "ColorBorderPressed": {
+                  "Red": 170,
+                  "Green": 221,
+                  "Blue": 255
+                }
+              }
+            ]
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "whiteKey_G5",
+            "X": 627,
+            "Y": 180,
+            "Width": 50,
+            "Height": 300,
+            "ButtonTrigger": {
+              "Type": "TouchButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "Width": 50,
+                "Height": 300,
+                "LockToFlexButtonSize": true,
+                "BorderSize": 5,
+                "ColorReleased": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "ColorPressed": {
+                  "Red": 170,
+                  "Green": 221,
+                  "Blue": 255
+                },
+                "ColorBorderReleased": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "ColorBorderPressed": {
+                  "Red": 170,
+                  "Green": 221,
+                  "Blue": 255
+                }
+              }
+            ]
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "whiteKey_A5",
+            "X": 684,
+            "Y": 180,
+            "Width": 50,
+            "Height": 300,
+            "ButtonTrigger": {
+              "Type": "TouchButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "Width": 50,
+                "Height": 300,
+                "LockToFlexButtonSize": true,
+                "BorderSize": 5,
+                "ColorReleased": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "ColorPressed": {
+                  "Red": 170,
+                  "Green": 221,
+                  "Blue": 255
+                },
+                "ColorBorderReleased": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "ColorBorderPressed": {
+                  "Red": 170,
+                  "Green": 221,
+                  "Blue": 255
+                }
+              }
+            ]
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "whiteKey_B5",
+            "X": 741,
+            "Y": 180,
+            "Width": 50,
+            "Height": 300,
+            "ButtonTrigger": {
+              "Type": "TouchButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "Width": 50,
+                "Height": 300,
+                "LockToFlexButtonSize": true,
+                "BorderSize": 5,
+                "ColorReleased": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "ColorPressed": {
+                  "Red": 170,
+                  "Green": 221,
+                  "Blue": 255
+                },
+                "ColorBorderReleased": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "ColorBorderPressed": {
+                  "Red": 170,
+                  "Green": 221,
+                  "Blue": 255
+                }
+              }
+            ]
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "blackKey_Cs4",
+            "X": 38,
+            "Y": 180,
+            "Width": 38,
+            "Height": 180,
+            "ButtonTrigger": {
+              "Type": "TouchButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "Width": 38,
+                "Height": 180,
+                "LockToFlexButtonSize": true,
+                "BorderSize": 5,
+                "ColorPressed": {
+                  "Red": 51,
+                  "Green": 68,
+                  "Blue": 85
+                },
+                "ColorBorderPressed": {
+                  "Red": 51,
+                  "Green": 68,
+                  "Blue": 85
+                }
+              }
+            ]
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "blackKey_Ds4",
+            "X": 95,
+            "Y": 180,
+            "Width": 38,
+            "Height": 180,
+            "ButtonTrigger": {
+              "Type": "TouchButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "Width": 38,
+                "Height": 180,
+                "LockToFlexButtonSize": true,
+                "BorderSize": 5,
+                "ColorPressed": {
+                  "Red": 51,
+                  "Green": 68,
+                  "Blue": 85
+                },
+                "ColorBorderPressed": {
+                  "Red": 51,
+                  "Green": 68,
+                  "Blue": 85
+                }
+              }
+            ]
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "blackKey_Fs4",
+            "X": 209,
+            "Y": 180,
+            "Width": 38,
+            "Height": 180,
+            "ButtonTrigger": {
+              "Type": "TouchButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "Width": 38,
+                "Height": 180,
+                "LockToFlexButtonSize": true,
+                "BorderSize": 5,
+                "ColorPressed": {
+                  "Red": 51,
+                  "Green": 68,
+                  "Blue": 85
+                },
+                "ColorBorderPressed": {
+                  "Red": 51,
+                  "Green": 68,
+                  "Blue": 85
+                }
+              }
+            ]
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "blackKey_Gs4",
+            "X": 266,
+            "Y": 180,
+            "Width": 38,
+            "Height": 180,
+            "ButtonTrigger": {
+              "Type": "TouchButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "Width": 38,
+                "Height": 180,
+                "LockToFlexButtonSize": true,
+                "BorderSize": 5,
+                "ColorPressed": {
+                  "Red": 51,
+                  "Green": 68,
+                  "Blue": 85
+                },
+                "ColorBorderPressed": {
+                  "Red": 51,
+                  "Green": 68,
+                  "Blue": 85
+                }
+              }
+            ]
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "blackKey_As4",
+            "X": 323,
+            "Y": 180,
+            "Width": 38,
+            "Height": 180,
+            "ButtonTrigger": {
+              "Type": "TouchButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "Width": 38,
+                "Height": 180,
+                "LockToFlexButtonSize": true,
+                "BorderSize": 5,
+                "ColorPressed": {
+                  "Red": 51,
+                  "Green": 68,
+                  "Blue": 85
+                },
+                "ColorBorderPressed": {
+                  "Red": 51,
+                  "Green": 68,
+                  "Blue": 85
+                }
+              }
+            ]
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "blackKey_Cs5",
+            "X": 437,
+            "Y": 180,
+            "Width": 38,
+            "Height": 180,
+            "ButtonTrigger": {
+              "Type": "TouchButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "Width": 38,
+                "Height": 180,
+                "LockToFlexButtonSize": true,
+                "BorderSize": 5,
+                "ColorPressed": {
+                  "Red": 51,
+                  "Green": 68,
+                  "Blue": 85
+                },
+                "ColorBorderPressed": {
+                  "Red": 51,
+                  "Green": 68,
+                  "Blue": 85
+                }
+              }
+            ]
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "blackKey_Ds5",
+            "X": 494,
+            "Y": 180,
+            "Width": 38,
+            "Height": 180,
+            "ButtonTrigger": {
+              "Type": "TouchButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "Width": 38,
+                "Height": 180,
+                "LockToFlexButtonSize": true,
+                "BorderSize": 5,
+                "ColorPressed": {
+                  "Red": 51,
+                  "Green": 68,
+                  "Blue": 85
+                },
+                "ColorBorderPressed": {
+                  "Red": 51,
+                  "Green": 68,
+                  "Blue": 85
+                }
+              }
+            ]
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "blackKey_Fs5",
+            "X": 608,
+            "Y": 180,
+            "Width": 38,
+            "Height": 180,
+            "ButtonTrigger": {
+              "Type": "TouchButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "Width": 38,
+                "Height": 180,
+                "LockToFlexButtonSize": true,
+                "BorderSize": 5,
+                "ColorPressed": {
+                  "Red": 51,
+                  "Green": 68,
+                  "Blue": 85
+                },
+                "ColorBorderPressed": {
+                  "Red": 51,
+                  "Green": 68,
+                  "Blue": 85
+                }
+              }
+            ]
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "blackKey_Gs5",
+            "X": 665,
+            "Y": 180,
+            "Width": 38,
+            "Height": 180,
+            "ButtonTrigger": {
+              "Type": "TouchButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "Width": 38,
+                "Height": 180,
+                "LockToFlexButtonSize": true,
+                "BorderSize": 5,
+                "ColorPressed": {
+                  "Red": 51,
+                  "Green": 68,
+                  "Blue": 85
+                },
+                "ColorBorderPressed": {
+                  "Red": 51,
+                  "Green": 68,
+                  "Blue": 85
+                }
+              }
+            ]
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "blackKey_As5",
+            "X": 722,
+            "Y": 180,
+            "Width": 38,
+            "Height": 180,
+            "ButtonTrigger": {
+              "Type": "TouchButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "Width": 38,
+                "Height": 180,
+                "LockToFlexButtonSize": true,
+                "BorderSize": 5,
+                "ColorPressed": {
+                  "Red": 51,
+                  "Green": 68,
+                  "Blue": 85
+                },
+                "ColorBorderPressed": {
+                  "Red": 51,
+                  "Green": 68,
+                  "Blue": 85
+                }
+              }
+            ]
+          },
+          {
+            "Type": "TextArea",
+            "Name": "noteNameText",
+            "X": 538,
+            "Y": 29,
+            "Width": 114,
+            "Height": 35,
+            "TextId": "__SingleUse_WIDD",
+            "TextRotation": "0",
+            "Color": {
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_YWQW",
+              "UseBuffer": true,
+              "BufferSize": 20
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "freqText",
+            "X": 750,
+            "Y": 29,
+            "Width": 41,
+            "Height": 34,
+            "TextId": "__SingleUse_8AH2",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 170,
+              "Green": 170,
+              "Blue": 170
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "freqText_1",
+            "X": 677,
+            "Y": 29,
+            "Width": 76,
+            "Height": 32,
+            "TextId": "__SingleUse_PERH",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 170,
+              "Green": 170,
+              "Blue": 170
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_WXID",
+              "UseBuffer": true,
+              "BufferSize": 20
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "octaveText",
+            "X": -11,
+            "Y": 30,
+            "Width": 144,
+            "Height": 32,
+            "TextId": "__SingleUse_K3JL",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "octaveText_1",
+            "X": 100,
+            "Y": 30,
+            "Width": 54,
+            "Height": 32,
+            "TextId": "__SingleUse_T3PB",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_NBW3",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "octaveDownBtn",
+            "X": 37,
+            "Y": 62,
+            "Width": 40,
+            "Height": 40,
+            "ButtonTrigger": {
+              "Type": "ClickButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "TextButtonStyle",
+                "TextId": "__SingleUse_BPXT",
+                "TextRotation": "0",
+                "ColorReleased": {
+                  "Red": 10,
+                  "Green": 10,
+                  "Blue": 10
+                },
+                "ColorPressed": {
+                  "Red": 10,
+                  "Green": 10,
+                  "Blue": 10
+                }
+              },
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "Width": 40,
+                "Height": 40,
+                "LockToFlexButtonSize": true,
+                "ColorReleased": {
+                  "Green": 102,
+                  "Blue": 153
+                },
+                "ColorPressed": {
+                  "Green": 153,
+                  "Blue": 204
+                },
+                "ColorBorderReleased": {
+                  "Green": 51,
+                  "Blue": 102
+                },
+                "ColorBorderPressed": {
+                  "Red": 51,
+                  "Green": 102,
+                  "Blue": 153
+                }
+              }
+            ]
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "octaveUpBtn",
+            "X": 87,
+            "Y": 62,
+            "Width": 40,
+            "Height": 40,
+            "ButtonTrigger": {
+              "Type": "ClickButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "TextButtonStyle",
+                "TextId": "__SingleUse_Q8R8",
+                "TextRotation": "0",
+                "ColorReleased": {
+                  "Red": 10,
+                  "Green": 10,
+                  "Blue": 10
+                },
+                "ColorPressed": {
+                  "Red": 10,
+                  "Green": 10,
+                  "Blue": 10
+                }
+              },
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "Width": 40,
+                "Height": 40,
+                "LockToFlexButtonSize": true,
+                "ColorReleased": {
+                  "Green": 102,
+                  "Blue": 153
+                },
+                "ColorPressed": {
+                  "Green": 153,
+                  "Blue": 204
+                },
+                "ColorBorderReleased": {
+                  "Green": 51,
+                  "Blue": 102
+                },
+                "ColorBorderPressed": {
+                  "Red": 51,
+                  "Green": 102,
+                  "Blue": 153
+                }
+              }
+            ]
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea1",
+            "X": 424,
+            "Y": 89,
+            "Width": 101,
+            "Height": 31,
+            "TextId": "__SingleUse_ZODA",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "volumeText",
+            "X": 753,
+            "Y": 92,
+            "Width": 39,
+            "Height": 20,
+            "TextId": "__SingleUse_8F8R",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_0XTE",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "Slider",
+            "Name": "volumeSlider",
+            "X": 525,
+            "Y": 89,
+            "Width": 232,
+            "Height": 32,
+            "IsHorizontalSlider": true,
+            "BackgroundUnselected": "__generated\\light_theme_images_widgets_slider_horizontal_thick_track_small.png",
+            "BackgroundSelected": "__generated\\light_theme_images_widgets_slider_horizontal_thick_filler_small.png",
+            "Indicator": "__generated\\light_theme_images_widgets_slider_horizontal_thick_rounded_active.png",
+            "BackgroundX": 16,
+            "BackgroundY": 11,
+            "IndicatorMax": 200,
+            "ValueMax": 100,
+            "InitValue": 80,
+            "Preset": "light_theme\\presets\\slider\\horizontal\\thick\\small_rounded_active.json"
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "onKeyPressed_C4",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "whiteKey_C4"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onKeyPressed_C4"
+            }
+          },
+          {
+            "InteractionName": "onKeyPressed_D4",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "whiteKey_D4"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onKeyPressed_D4"
+            }
+          },
+          {
+            "InteractionName": "onKeyPressed_E4",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "whiteKey_E4"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onKeyPressed_E4"
+            }
+          },
+          {
+            "InteractionName": "onKeyPressed_G4",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "whiteKey_G4"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onKeyPressed_G4"
+            }
+          },
+          {
+            "InteractionName": "onKeyPressed_A4",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "whiteKey_A4"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onKeyPressed_A4"
+            }
+          },
+          {
+            "InteractionName": "onKeyPressed_F4",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "whiteKey_F4"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onKeyPressed_F4"
+            }
+          },
+          {
+            "InteractionName": "onKeyPressed_B4",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "whiteKey_B4"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onKeyPressed_B4"
+            }
+          },
+          {
+            "InteractionName": "onKeyPressed_C5",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "whiteKey_C5"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onKeyPressed_C5"
+            }
+          },
+          {
+            "InteractionName": "onKeyPressed_D5",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "whiteKey_D5"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onKeyPressed_D5"
+            }
+          },
+          {
+            "InteractionName": "onKeyPressed_E5",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "whiteKey_E5"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onKeyPressed_E5"
+            }
+          },
+          {
+            "InteractionName": "onKeyPressed_F5",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "whiteKey_F5"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onKeyPressed_F5"
+            }
+          },
+          {
+            "InteractionName": "onKeyPressed_G5",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "whiteKey_G5"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onKeyPressed_G5"
+            }
+          },
+          {
+            "InteractionName": "onKeyPressed_A5",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "whiteKey_A5"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onKeyPressed_A5"
+            }
+          },
+          {
+            "InteractionName": "onKeyPressed_B5",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "whiteKey_B5"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onKeyPressed_B5"
+            }
+          },
+          {
+            "InteractionName": "onKeyPressed_Cs4",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "blackKey_Cs4"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onKeyPressed_Cs4"
+            }
+          },
+          {
+            "InteractionName": "onKeyPressed_Ds4",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "blackKey_Ds4"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onKeyPressed_Ds4"
+            }
+          },
+          {
+            "InteractionName": "onKeyPressed_Fs4",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "blackKey_Fs4"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onKeyPressed_Fs4"
+            }
+          },
+          {
+            "InteractionName": "onKeyPressed_Gs4",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "blackKey_Gs4"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onKeyPressed_Gs4"
+            }
+          },
+          {
+            "InteractionName": "onKeyPressed_As4",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "blackKey_As4"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onKeyPressed_As4"
+            }
+          },
+          {
+            "InteractionName": "onKeyPressed_Cs5",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "blackKey_Cs5"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onKeyPressed_Cs5"
+            }
+          },
+          {
+            "InteractionName": "onKeyPressed_Ds5",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "blackKey_Ds5"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onKeyPressed_Ds5"
+            }
+          },
+          {
+            "InteractionName": "onKeyPressed_Fs5",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "blackKey_Fs5"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onKeyPressed_Fs5"
+            }
+          },
+          {
+            "InteractionName": "onKeyPressed_Gs5",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "blackKey_Gs5"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onKeyPressed_Gs5"
+            }
+          },
+          {
+            "InteractionName": "onKeyPressed_As5",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "blackKey_As5"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onKeyPressed_As5"
+            }
+          },
+          {
+            "InteractionName": "onOctaveUp",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "octaveUpBtn"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onOctaveUp"
+            }
+          },
+          {
+            "InteractionName": "onOctaveDown",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "octaveDownBtn"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onOctaveDown"
+            }
+          },
+          {
+            "InteractionName": "onVolumeSliderChanged",
+            "Trigger": {
+              "Type": "TriggerSliderValueChanged",
+              "TriggerComponent": "volumeSlider"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onVolumeSliderChanged"
+            }
+          }
+        ]
+      }
+    ],
+    "CustomContainerDefinitions": [],
+    "Name": "Keyboard_v0",
+    "Resolution": {
+      "Width": 800,
+      "Height": 480
+    },
+    "SelectedColorDepth": 24,
+    "StartupScreenName": "Screen1",
+    "SelectedStartupLanguage": "GB",
+    "TouchGfxPath": "../Middlewares/ST/touchgfx",
+    "UIPath": ".",
+    "AvailableColorDepths": [
+      24
+    ],
+    "AvailableLCDs": {
+      "16": "LCD16bpp",
+      "24": "LCD24bpp"
+    },
+    "AvailableSections": [
+      "ExtFlashSection",
+      "IntFlashSection"
+    ],
+    "AvailableResolutions": [
+      {
+        "Width": 800,
+        "Height": 480
+      }
+    ],
+    "PhysicalButtons": [],
+    "FrameworkFeatures": {
+      "LCD24bpp": {
+        "Id": "LCD24bpp",
+        "IsEnabled": true
+      }
+    },
+    "GenerateAssetsCommand": "make -f simulator/gcc/Makefile assets -j8",
+    "PostGenerateCommand": "touchgfx update_project --project-file=simulator/msvs/Application.vcxproj",
+    "PostGenerateTargetCommand": "touchgfx update_project",
+    "CompileSimulatorCommand": "make -f simulator/gcc/Makefile -j8",
+    "RunSimulatorCommand": "build\\bin\\simulator.exe",
+    "CompileTargetCommandOverride": "make -f ../../gcc/Makefile -j8",
+    "FlashTargetCommandOverride": "make -f ../../gcc/Makefile flash",
+    "FlashTargetIntCommandOverride": "make -f ../../gcc/Makefile intflash",
+    "LandscapeSkinX": 0,
+    "LandscapeSkinY": 0,
+    "PortraitSkinX": 0,
+    "PortraitSkinY": 0,
+    "DisplayOrientation": "Landscape",
+    "Family": "STM32H7",
+    "SubFamily": "STM32H747/757",
+    "Toolchain": "STM32CubeIDE",
+    "Platform": "m7",
+    "ProjectFile": "../../STM32H747I-DISCO.ioc",
+    "OptionalComponentsRoot": "../Middlewares/ST/touchgfx_components",
+    "OptionalComponents": [],
+    "AdditionalFeatures": [
+      "CWRVector",
+      "VectorFonts",
+      "Video"
+    ]
+  },
+  "Version": "4.26.1",
+  "CreatedBy": "4.26.1"
+}
