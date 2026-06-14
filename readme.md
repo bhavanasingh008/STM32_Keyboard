@@ -237,12 +237,6 @@ For day-to-day development:
 
 ---
 
-## License
-
-(Add a license of your choice — MIT, Apache 2.0, or proprietary.)
-
----
-
 ## Acknowledgements
 
 Built with:
