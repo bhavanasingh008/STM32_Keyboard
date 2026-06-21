@@ -137,3 +137,6 @@ Session.vim
 #   generated/            (TouchGFX-generated code — KEEP, so the project
 #                          builds out of the box without forcing every cloner
 #                          to install the exact same Designer version)
+
+# Keep the prebuilt TouchGFX engine library (NOT an intermediate)
+!**/touchgfx/lib/**/*.a

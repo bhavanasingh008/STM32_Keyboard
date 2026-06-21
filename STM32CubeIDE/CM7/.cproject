@@ -262,7 +262,6 @@
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.includepaths.800094837" name="Include paths (-I)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.includepaths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="../../../CM7/Core/Inc"/>
-									<listOptionValue builtIn="false" value="&quot;C:\TouchGFXProjects\Keyboard_v0\STM32CubeIDE\CM7\Inc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;C:\Users\C_Bhavana_Singh\STM32Cube\Repository\STM32Cube_FW_H7_V1.13.0\Drivers\BSP\STM32H747I-DISCO&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;C:\Users\C_Bhavana_Singh\STM32Cube\Repository\STM32Cube_FW_H7_V1.13.0\Drivers\BSP\Components\wm8994&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;C:\Users\C_Bhavana_Singh\STM32Cube\Repository\STM32Cube_FW_H7_V1.13.0\Drivers\BSP\Components\Common&quot;"/>
