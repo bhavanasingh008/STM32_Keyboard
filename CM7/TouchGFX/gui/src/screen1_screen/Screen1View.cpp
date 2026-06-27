@@ -33,6 +33,7 @@ static uint8_t currentVolume = 80;     // start at 80%
 static uint32_t lastJoyState = 0;      // for edge detection (avoid repeats)
 static float currentPhase = 0.0f;
 
+extern "C" UART_HandleTypeDef huart1;   // USART1 = the ST-LINK virtual COM port
 
 static uint32_t shiftFreq(uint32_t baseFreq)
 {
@@ -67,6 +68,48 @@ static void generateSineWithAmplitude(uint32_t frequency, float amplitude)
     while (currentPhase > TWO_PI) currentPhase -= TWO_PI;
 
     SCB_CleanDCache_by_Addr((uint32_t*)audioBuffer, sizeof(audioBuffer));
+}
+
+// Take one half of the 48 kHz stereo buffer, shrink to 8 kHz mono 8-bit,
+// and push it out the serial port.
+//static void streamHalfToUart(int startIndex)
+////{
+////    static uint8_t txbuf[200];
+////    int k = 0;
+////    // step 12 int16 = skip 6 stereo frames -> 48000/6 = 8000 Hz; left channel only
+////    for (int i = startIndex; i < startIndex + (BUFFER_SIZE / 2); i += 12)
+////    {
+////        int16_t s = audioBuffer[i];                 // your "sample"
+////        txbuf[k++] = (uint8_t)((s >> 8) + 128);     // 16-bit signed -> 0..255
+////    }
+////    HAL_UART_Transmit_IT(&huart1, txbuf, k);
+////}
+
+static void streamHalfToUart(int startIndex)
+{
+    static uint8_t txbuf[200];
+    int k = 0;
+
+    // Make sure we read what's really in RAM, not stale cached values
+    SCB_InvalidateDCache_by_Addr((uint32_t*)&audioBuffer[startIndex],
+                                 (BUFFER_SIZE / 2) * sizeof(int16_t));
+
+    for (int i = startIndex; i < startIndex + (BUFFER_SIZE / 2); i += 12)
+    {
+        int16_t s = audioBuffer[i];
+        txbuf[k++] = (uint8_t)((s >> 8) + 128);
+    }
+    HAL_UART_Transmit_IT(&huart1, txbuf, k);
+}
+
+extern "C" void BSP_AUDIO_OUT_HalfTransfer_CallBack(uint32_t Instance)
+{
+    streamHalfToUart(0);                  // first half just finished playing
+}
+
+extern "C" void BSP_AUDIO_OUT_TransferComplete_CallBack(uint32_t Instance)
+{
+    streamHalfToUart(BUFFER_SIZE / 2);    // second half just finished playing
 }
 
 static void silenceAudio()

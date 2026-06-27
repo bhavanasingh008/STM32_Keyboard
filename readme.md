@@ -1,246 +1,163 @@
-# STM32H747I-DISCO Music Keyboard
+# STM32 Music Keyboard with Live Audio Streaming to PC
 
-A touchscreen piano keyboard built with TouchGFX on the STM32H747I-Discovery board.
-Each on-screen key plays a sine-wave tone through the headphone jack, with
-hold-to-sustain behaviour, ADSR envelope shaping, octave shifting, and a touch /
-joystick volume control.
+A touchscreen piano keyboard for the **STM32H747I-DISCO** board. Pressing a key
+synthesises a tone and plays it through the onboard audio codec — and at the same
+time streams that audio over a serial link to a PC, where a small Python script
+plays it through the computer's speakers in real time.
+
+The serial link runs through the board's on-board ST-LINK, which appears on the PC
+as an ordinary COM port. No extra wiring or USB-to-serial adapter is needed: the
+same cable that programs the board also carries the audio.
 
 ---
 
 ## Features
 
-- 24 piano keys (2 octaves: C4 through B5, white and black keys)
-- **Touch trigger**: notes start the instant the key is pressed
-- **Hold-to-sustain**: tone continues for as long as the key is held
-- **Minimum note duration**: short taps still produce an audible note (~300 ms)
-- **ADSR envelope** via codec hardware volume — smooth attack and release, no clicks
-- **Octave shifting** from -2 to +2 (audible range C2 through B7)
-- **Volume control** via on-screen slider and 5-way joystick (up/down)
-- **Live displays**: note name (e.g., "C#5"), exact frequency in Hz, current octave, current volume
-- **Dual-core build** (CM7 runs everything; CM4 boots but is idle)
+- Touchscreen piano keyboard built with TouchGFX (two octaves, octave shift,
+  volume control, attack/release envelope).
+- Real-time sine-wave synthesis played locally via SAI + DMA to the WM8994 codec.
+- Live audio streamed to the PC over UART (8 kHz, 8-bit, mono).
+- Self-contained Python player (`pyserial` + `sounddevice`) with low-latency
+  buffering.
 
 ---
 
-## Hardware Requirements
+## How it works
 
-- **STM32H747I-DISC0** Discovery board
-- Headphones or powered speakers (3.5 mm jack into **CN11**, the green jack)
-- USB cable (Micro-B) for power, flashing, and debugging
-- ST-LINK V3 (built into the board)
-
----
-
-## Software Requirements
-
-| Tool | Version Used | Notes |
-|---|---|---|
-| STM32CubeIDE | 2.1.1 | Newer versions should work too |
-| TouchGFX Designer | 4.26.1 | Required for editing the UI |
-| STM32CubeProgrammer | latest | Used for flashing |
-| STM32 Cube Firmware H7 | V1.13.0 | Install via CubeMX |
-| GCC ARM toolchain | bundled with CubeIDE | — |
-
----
-
-## First-Time Setup
-
-### 1. Clone the repo
-
-```bash
-git clone <your-repo-url> Keyboard_v1
-cd Keyboard_v1
+```mermaid
+flowchart TD
+    A[Key pressed] --> B[Sine into audioBuffer<br/>48 kHz, 16-bit, stereo]
+    B --> C[SAI + DMA loop the buffer]
+    C --> D[(WM8994 codec<br/>onboard speaker)]
+    C --> E[DMA callbacks every ~21 ms]
+    E --> F[Invalidate cache, read half-buffer]
+    F --> G[Decimate to 8 kHz mono, 8-bit]
+    G --> H[USART1 @ 115200 baud]
+    H --> I[ST-LINK virtual COM port]
+    I --> J[PC: pyserial reads bytes]
+    J --> K[sounddevice plays at 8 kHz]
 ```
 
-> Place it in a path **without spaces**, e.g., `C:\TouchGFXProjects\Keyboard_v1\`. Spaces in the path can break some toolchain steps.
+The audio tap runs off the playback DMA's own interrupts, which fire continuously
+as the buffer loops — so the stream is steady and independent of key presses. The
+board audio path is untouched; the PC stream is a parallel, reduced copy.
 
-### 2. Install the STM32 H7 firmware package
-
-1. Open CubeMX (or CubeIDE → Help → Manage embedded software packages).
-2. Search for **STM32CubeH7** and install version **1.13.0**.
-3. The package goes to `C:\Users\<yourname>\STM32Cube\Repository\STM32Cube_FW_H7_V1.13.0\`.
-
-This package contains BSP drivers (`stm32h747i_discovery_audio.c`, `wm8994.c`, etc.) that the project references.
-
-### 3. Regenerate TouchGFX code
-
-1. Open `Keyboard_v0.touchgfx` (in the project root) with TouchGFX Designer.
-2. **File → Generate Code** (or press F4).
-
-This populates the `CM7/TouchGFX/generated/` folders. They're committed to git, but regenerating ensures they match your local Designer install.
-
-### 4. Import into STM32CubeIDE
-
-1. Open CubeIDE with a workspace of your choice.
-2. **File → Import → General → Existing Projects into Workspace**.
-3. Browse to the project's `STM32CubeIDE/` folder.
-4. Two projects appear: `KEYBOARD_V1_CM7` and `KEYBOARD_V1_CM4`. Tick both.
-5. **Leave "Copy projects into workspace" UNCHECKED.** The project uses relative paths that only resolve when it stays in its original folder.
-6. Click Finish.
-
-### 5. Configure the external QSPI loader
-
-The board has an external 64 MB QSPI flash chip (Micron MT25TL01G) that holds TouchGFX assets (fonts, images). Programming it requires a loader binary.
-
-1. **Run → Debug Configurations…**
-2. Select the `KEYBOARD_V1_CM7` debug entry (or create one for the CM7 project).
-3. Open the **Debugger** tab.
-4. Scroll to **External Loaders** → check **Use external loader**.
-5. Click **Add…**, select `MT25TL01G_STM32H747I-DISCO.stldr` (ships with CubeProgrammer).
-6. **Apply**, close.
-
-Without this, flashing will fail with "Load failed" because the ST-LINK can't program the external chip.
-
-### 6. Build and flash
-
-1. Build the CM4 project first: right-click `KEYBOARD_V1_CM4` → Build Project. It should compile in seconds.
-2. Build the CM7 project: right-click `KEYBOARD_V1_CM7` → Build Project. Takes longer (~30 s for first build).
-3. **Run → Debug** on `KEYBOARD_V1_CM7`. The IDE flashes both cores and starts a debug session.
-4. **Power-cycle the board** (unplug and replug USB) after the first flash to ensure the audio codec resets cleanly.
-
-You should now see the keyboard on the touchscreen. Plug in headphones, tap a key, hear a tone.
+For a full technical write-up, see [the detailed report](keyboard_uart_streaming_report.md).
 
 ---
 
-## Project Structure
+## Hardware
 
-```
-Keyboard_v1/
-├── Keyboard_v0.touchgfx          ← TouchGFX project file (open in Designer)
-├── stm32h747i-disco.ioc          ← CubeMX configuration
-├── README.md                     ← this file
-├── .gitignore
-│
-├── CM7/                          ← Cortex-M7 source (the brain)
-│   ├── Core/                     ← CubeMX-generated startup, peripheral init
-│   │   └── Src/main.c            ← entry point, peripheral configs
-│   ├── TouchGFX/
-│   │   ├── gui/                  ← YOUR application code
-│   │   │   ├── include/screen1_screen/
-│   │   │   │   └── Screen1View.hpp
-│   │   │   └── src/screen1_screen/
-│   │   │       └── Screen1View.cpp   ← all audio + UI logic
-│   │   ├── generated/            ← Designer auto-generated (do not edit)
-│   │   └── target/               ← board integration (display, touch)
-│   └── LIBJPEG/                  ← JPEG decoder (unused in current project)
-│
-├── CM4/                          ← Cortex-M4 source (idle in this project)
-├── Common/                       ← shared boot code
-│
-├── STM32CubeIDE/                 ← CubeIDE project files
-│   ├── CM7/                      ← .project, .cproject, linker scripts
-│   │   └── stm32h747xx_flash_CM7.ld
-│   └── CM4/
-│       └── stm32h747xx_flash_CM4.ld
-│
-├── Drivers/                      ← STM32 HAL + BSP drivers
-├── Middlewares/                  ← FreeRTOS, TouchGFX framework, LibJPEG
-├── Utilities/                    ← JPEG utility wrappers
-├── assets/                       ← TouchGFX image sources (PNGs)
-├── config/                       ← TouchGFX build configurations
-└── generated/                    ← TouchGFX framework code (committed)
-```
+- STM32H747I-DISCO Discovery board
+- USB cable (to the ST-LINK / CN connector) — used for both programming and the
+  audio stream
+- Headphones or speaker on the board's audio jack (optional, for local playback)
+
+## Software
+
+- STM32CubeIDE (project built with the STM32Cube_FW_H7 v1.13.0 package)
+- STM32CubeProgrammer (for flashing, with the MT25TL01G external loader)
+- Python 3 on the PC, with:
+  ```
+  pip install pyserial sounddevice numpy
+  ```
+  (pyserial 3.5 or newer)
 
 ---
 
-## Key Files to Edit
+## Build and flash the board
 
-| What you want to change | File |
-|---|---|
-| Audio behaviour, key handlers, envelope | `CM7/TouchGFX/gui/src/screen1_screen/Screen1View.cpp` |
-| Class declarations | `CM7/TouchGFX/gui/include/screen1_screen/Screen1View.hpp` |
-| UI layout (keys, sliders, text widgets) | open `Keyboard_v0.touchgfx` in Designer |
-| Peripheral config (SAI, DMA, clocks) | open `stm32h747i-disco.ioc` in CubeMX |
-| Memory layout / flash address | `STM32CubeIDE/CM7/stm32h747xx_flash_CM7.ld` |
+1. Open the project in STM32CubeIDE and build the **CM7** application.
+2. Flash with STM32CubeProgrammer:
+   - Connect mode: **Under Reset**
+   - Enable the external loader **MT25TL01G_STM32H747I-DISCO** (needed to program
+     the TouchGFX image/font assets in QSPI flash)
+   - Program the `.elf` (skip full erase if the chip's erase step fails — programming
+     overwrites it directly)
+3. Reset the board. The keyboard UI should appear and tones should play on key press.
 
-**Do NOT edit:**
-- Any file in `generated/` or `gui_generated/` — overwritten on F4.
-- `Screen1ViewBase.hpp/.cpp` — generated; edit `Screen1View.hpp/.cpp` instead.
-
----
-
-## Hardware Architecture (Quick Reference)
-
-| Region | Address | Used For |
-|---|---|---|
-| Internal Flash Bank 1 | `0x08000000`, 1 MB | CM7 code |
-| Internal Flash Bank 2 | `0x08100000`, 1 MB | CM4 code |
-| RAM_D1 | `0x24000000`, 512 KB | CM7 RAM, `audioBuffer[]` |
-| RAM_D2 | `0x30000000`, 288 KB | CM4 RAM |
-| External QSPI | `0x90000000`, 64 MB | TouchGFX fonts and images |
-| External SDRAM | `0xD0000000`, 32 MB | TouchGFX framebuffers |
-
-See `Memory_Architecture_Report.md` for the full details.
+> **Note:** `HAL_UART_MODULE_ENABLED` must be uncommented in
+> `CM7/Core/Inc/stm32h7xx_hal_conf.h`. If it is off, the build fails with
+> `undefined reference to HAL_UART_*`. This define can be reset by CubeMX
+> regeneration — re-check it if that happens.
 
 ---
 
-## How a Key Press Works (Quick Reference)
+## Run the PC player
 
-1. Finger touches screen → FT6x06 touch controller detects it.
-2. TouchGFX polls the touch driver on its next 60 Hz tick.
-3. The Flex Button for the pressed key fires its **Touch** interaction.
-4. `onKeyPressed_X()` runs → calls `playNote(freq, name)`.
-5. `playNote` writes a sine wave into `audioBuffer[]`, flushes the CPU cache.
-6. DMA (already running circularly) reads the new buffer contents.
-7. SAI peripheral clocks the samples to the WM8994 codec.
-8. Codec produces analog output through the headphone jack.
-9. Envelope state machine ramps codec volume up (attack) and later down (release).
-
-Total latency from touch to audible tone: ~20–35 ms.
-
-See `Touch_to_Audio_Process_Report.md` for the full step-by-step.
-
----
-
-## Troubleshooting
-
-### "Load failed" when flashing
-The external QSPI loader isn't configured for this project's debug config. See setup step 5.
-
-### Build fails with "pdm2pcm_glo.h: No such file or directory"
-The PDM2PCM include path is missing from the build configuration. Right-click project → Properties → C/C++ Build → Settings → MCU GCC Compiler → Include paths → add:
-`<firmware repo>/Middlewares/ST/STM32_Audio/Addons/PDM/Inc`
-
-### No audio after flashing
-- Make sure headphones are in **CN11** (green jack), not CN10.
-- Power-cycle the board after flashing (codec state can get stuck).
-- Check that BSP audio volume is non-zero in `setupScreen` (currently set to 80).
-
-### TouchGFX text shows question marks (????)
-The font doesn't have glyphs for those characters. In Designer, edit the wildcard text widget's **initial value** to include every character you want to display, then F4 → Clean → build.
-
-### Slider doesn't update volume
-Make sure the slider has an **Interaction** in Designer with trigger = value-changed, action = call virtual function `onVolumeSliderChanged`.
-
-### Joystick changes volume in both directions (only up, or only down)
-The BSP `BSP_JOY_GetState` API can differ between versions. Use `BSP_JOY_GetState(JOY1, JOY_ALL)` and mask the result against `JOY_UP` / `JOY_DOWN` individually.
-
-### Notes click or buzz at the start/end
-Increase `ATTACK_TICKS` and `RELEASE_TICKS` in `Screen1View.cpp` for a slower, smoother envelope. Default values: 6 and 10.
-
----
-
-## Workflow After Setup
-
-For day-to-day development:
-
-1. Edit code in `Screen1View.cpp` / `Screen1View.hpp`.
-2. If changing the UI, open the `.touchgfx` file in Designer and edit there → F4 to regenerate.
-3. In CubeIDE: build (`Ctrl+B`), flash via Debug, power-cycle, test.
-4. Commit your changes:
-   ```bash
-   git add -u
-   git commit -m "what you changed"
-   git push
+1. Find the board's COM port (Windows Device Manager, or `/dev/ttyACM*` on
+   Linux/Mac).
+2. Edit `PORT` in the script to match.
+3. Run it:
    ```
+   python keyboard_pc_player.py
+   ```
+4. Press keys on the board — the audio plays on the PC.
 
-**After UI changes** (font characters, wildcard values, new widgets), always do **Project → Clean** before building. CubeIDE's incremental build sometimes misses Designer-regenerated files.
+Key settings in the script (must match the firmware):
+
+| Setting | Value |
+|---|---|
+| `BAUD` | 115200 |
+| `RATE` | 8000 |
+| Format | 8-bit unsigned, mono |
+
+Latency is tuned with `MAX_LAG`, `blocksize`, and `latency='low'` — lower values
+are more responsive but more prone to clicks.
 
 ---
 
-## Acknowledgements
+## Streaming format
 
-Built with:
-- [TouchGFX](https://touchgfx.com/) framework by STMicroelectronics
-- STM32CubeH7 firmware package
-- FreeRTOS
-- WM8994 audio codec driver (BSP)
+| Stage | Rate | Resolution | Channels |
+|---|---|---|---|
+| Board internal (codec) | 48 kHz | 16-bit | Stereo |
+| UART stream | 8 kHz | 8-bit | Mono |
+
+8-bit was chosen on purpose: a dropped byte glitches a single sample and recovers,
+rather than corrupting the whole stream as it would with 16-bit samples.
+
+---
+
+## Troubleshooting / known gotchas
+
+- **Gritty / distorted PC audio while the board's own audio is fine.** This is a
+  Cortex-M7 data-cache issue: the CPU reads stale cached samples instead of what is
+  really in RAM. The fix is the `SCB_InvalidateDCache_by_Addr` call before reading
+  the buffer in the audio callback — it must stay in.
+- **`undefined reference to HAL_UART_*` at link time.** `HAL_UART_MODULE_ENABLED`
+  is commented out (see the build note above).
+- **Scrambled display after regenerating from CubeMX.** Caused by the CPU PLL being
+  changed by CubeMX's clock auto-resolve. Keep the working PLL1 values and check
+  `git diff` on `main.c` after any code generation.
+- **Red SAI clock warning in CubeMX.** Cosmetic — the audio BSP reconfigures the SAI
+  clock (via PLL2) at runtime. Do not let CubeMX auto-resolve the whole tree.
+- **pyserial `byref` / `handle is invalid` error on Windows.** Use the provided
+  non-blocking reader (`timeout=0` + `ser.in_waiting`) and let the script close the
+  port on exit; restart the kernel if running inside Spyder.
+
+---
+
+## Limitations and roadmap
+
+- The PC stream is constant full volume with no fade (the envelope is applied by the
+  codec, not in the buffer). Planned: scale samples by the live volume.
+- Telephone-grade quality (8 kHz / 8-bit). Planned upgrades: 16-bit samples, and a
+  16 kHz sample rate.
+- One-way, mono. A USB Audio Class implementation (board as a real PC microphone) is
+  a possible future direction.
+
+---
+
+## Repository layout
+
+```
+CM7/                     Cortex-M7 application (keyboard + audio + streaming)
+  Core/Src/main.c        Clocks, peripherals, USART1 init
+  TouchGFX/gui/...        Screen1View.cpp — synth + UART audio tap
+CM4/                     Cortex-M4 application
+Drivers/                 STM32 HAL + BSP
+Middlewares/             FreeRTOS, TouchGFX, LibJPEG
+keyboard_pc_player.py    PC-side audio player
+keyboard_uart_streaming_report.md   Detailed technical report
+```
